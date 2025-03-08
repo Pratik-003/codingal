@@ -43,14 +43,21 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center p-4 bg-white shadow-md relative">
+    <nav className="flex justify-between items-center p-4 bg-white shadow-md relative z-50">
       
+      {/* Left Side: Logo and Home */}
       <div className="flex items-center space-x-3">
         <img src="/logo.png" alt="Logo" className="h-8 w-8" />
         <span className="text-lg font-semibold">Codingal</span>
+        <Link
+          to="/"
+          className="hidden md:block text-blue-600 text-lg font-semibold hover:underline"
+        >
+          Home
+        </Link>
       </div>
 
-      
+      {/* Desktop Navigation */}
       <div className="hidden md:flex items-center space-x-4">
         <Link
           to="/posts"
@@ -69,7 +76,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      
+      {/* Mobile Hamburger Menu */}
       <button
         className="md:hidden block focus:outline-none"
         onClick={toggleDropdown}
@@ -92,7 +99,13 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu */}
       {isDropdownOpen && (
-        <div className="absolute top-16 right-4 bg-white shadow-lg rounded-md p-4 w-48">
+        <div className="absolute top-16 right-4 bg-white shadow-lg rounded-md p-4 w-48 z-50 transition-all duration-300 ease-in-out">
+          <Link
+            to="/"
+            className="block text-blue-600 text-lg font-semibold hover:underline mb-3"
+          >
+            Home
+          </Link>
           <Link
             to="/posts"
             className="block text-blue-600 text-lg font-semibold hover:underline mb-3"
